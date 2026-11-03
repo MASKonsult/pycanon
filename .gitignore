@@ -55,3 +55,7 @@ ChangeLog
 *.json
 # Any 99- directory is local-only, never tracked (~/Repositories/README.md)
 99-*/
+
+# Claude Code settings travel with the repository.
+!.claude/
+!.claude/settings.json
