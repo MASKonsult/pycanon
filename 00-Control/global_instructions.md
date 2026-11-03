@@ -1,8 +1,8 @@
-<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit 958f011, version 20261031a. Refreshed from the source; do not edit here. -->
+<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit f07bdab, version 20261103a. Refreshed from the source; do not edit here. -->
 
 # CLAUDE.md — Global (applies to all projects)
 # Working instructions for Claude Code across all of Matt's projects.
-# Version: 20261031a
+# Version: 20261103a
 # Master: MASKonsult/repository-index, 00-Control/global_instructions.md. Installed at /etc/claude-code/CLAUDE.md with 00-Control/shared_working_rules.md appended.
 
 ---
@@ -116,6 +116,8 @@ When a design decision is made, a name is locked or a convention is agreed, reco
 **Portability is a first-class constraint.** No host-specific paths, usernames or assumptions. Anything that creates a host-specific dependency is stated as a portability gap, even when acceptable for the MVP.
 
 **Configuration** lives in YAML files: no hardcoded paths, ports, credentials or magic numbers in code.
+
+**No defaults in code.** Code never carries a fallback or "safe default" for a setting; a missing setting stops the program with a message naming it. Defaults are visible in a defaults file or in the configuration file itself, where Matt can comment them out and replace them with his own. Matt, 3 Nov 2026: "We do not hard code safe defaults, because we have no transparency over them. We can have a default file, we can have defaults in our configuration file that we can then hash out and replace with our own. That's how it works. Who is ChatGPT to decide what's a safe default?"
 
 ---
 
