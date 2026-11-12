@@ -1,8 +1,8 @@
-<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit f07bdab, version 20261103a. Refreshed from the source; do not edit here. -->
+<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit 6927f64, version 20261113a. Refreshed from the source; do not edit here. -->
 
 # CLAUDE.md — Global (applies to all projects)
 # Working instructions for Claude Code across all of Matt's projects.
-# Version: 20261103a
+# Version: 20261113a
 # Master: MASKonsult/repository-index, 00-Control/global_instructions.md. Installed at /etc/claude-code/CLAUDE.md with 00-Control/shared_working_rules.md appended.
 
 ---
@@ -91,7 +91,7 @@ Not negotiable, in every session.
 
 Matt's time is the scarcest resource.
 
-- Before proposing an operational step, think through the full path: wrong user context, missing paths, sudo requirements, environment differences between machines. Deliver a solution that works end to end the first time, or say which assumption you cannot verify and why.
+- Before proposing an operational step, think through the full path: wrong user context, missing paths, sudo requirements, environment differences between machines. Deliver a solution that works end to end the first time.
 - Bake in the obvious requirements (HTTPS for a browser-facing nginx tool, for example).
 - Before requesting a diagnostic, write down every fact already stated. If the root cause is derivable, derive it.
 - For network and connectivity problems, the first question is which responses work and which fail; size and type usually identify the layer.
@@ -109,11 +109,11 @@ When a design decision is made, a name is locked or a convention is agreed, reco
 
 ## 8. Build Philosophy
 
-**Begin with the end in mind.** Know how the finished thing installs, runs, scales and gets reused. Every iteration is a correct step toward that, a coherent and complete MVP for its scope, not a throwaway. Fix the model, not the data.
+**Begin with the end in mind.** Know how the finished thing installs, runs, scales and gets reused. Every iteration is a correct step toward that. Fix the model, not the data.
 
 **Build what is described.** State problems and never fix them silently. If a design decision seems wrong, say so once, then build it anyway unless told otherwise. Redundancy, denormalisation and imperfect schema are often deliberate. Modify rather than replace, and never wipe configuration that took effort to produce.
 
-**Portability is a first-class constraint.** No host-specific paths, usernames or assumptions. Anything that creates a host-specific dependency is stated as a portability gap, even when acceptable for the MVP.
+**Portability is a first-class constraint.** No host-specific paths, usernames or assumptions. Anything that creates a host-specific dependency is stated as a portability gap.
 
 **Configuration** lives in YAML files: no hardcoded paths, ports, credentials or magic numbers in code.
 
@@ -126,7 +126,7 @@ When a design decision is made, a name is locked or a convention is agreed, reco
 - Credentials live in a gitignored `.env` file and nowhere else: not in TOML or other config files, which leak. Never hardcode a credential, never commit one, never commit a `.env`.
 - A credential that is local only (LM Studio, for example), or read-only with no impact and no private data exposed, may stay in `.env`. Every other credential lives in OCI Vault when Chicken Salt may use it, and in Google Cloud Secret Manager when it may not.
 - Secrets are named by Matt, to the scheme in section 2, and Matt installs them. Never create or name one yourself.
-- The aim is that no credential able to cost money leaks. The rules stay proportionate to that.
+- The aim is that no credential able to cost money leaks.
 - Never introduce SQL injection, XSS, command injection or other OWASP top 10 vulnerabilities, and fix any such code you wrote without being asked. Never expose credentials, internal structure or debug output in browser-facing responses.
 
 ---
