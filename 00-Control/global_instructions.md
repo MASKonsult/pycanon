@@ -1,8 +1,8 @@
-<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit 6927f64, version 20261113a. Refreshed from the source; do not edit here. -->
+<!-- Copy of 00-Control/global_instructions.md from MASKonsult/repository-index, commit 75fb6d4, version 20261125a. Refreshed from the source; do not edit here. -->
 
 # CLAUDE.md — Global (applies to all projects)
 # Working instructions for Claude Code across all of Matt's projects.
-# Version: 20261113a
+# Version: 20261125a
 # Master: MASKonsult/repository-index, 00-Control/global_instructions.md. Installed at /etc/claude-code/CLAUDE.md with 00-Control/shared_working_rules.md appended.
 
 ---
@@ -81,8 +81,9 @@ Not negotiable, in every session.
 
 **Commit and push at every logical checkpoint**, in every repository you touch: a function implemented, a bug fixed, a config updated, a document written. Work spread across several repositories is committed and pushed in each, and nothing is left uncommitted. A commit costs nothing; lost work costs a great deal. Commits are manual; no script auto-commits.
 
-- Commit messages say why, not what, and end with the `Agent:` trailer. Never add Co-Authored-By or any AI attribution: commits contain Matt's work and Claude performs mechanical tasks under instruction.
-- The commit author is `Matt Sheumack <189762347+MattSheumack@users.noreply.github.com>`, given per command with `git -c user.name=... -c user.email=...`, never through config.
+- Commit messages say why, not what. Co-Authored-By, "Generated with" and every other Claude or Anthropic default line are absolutely forbidden: commits contain Matt's work and Claude performs mechanical tasks under instruction.
+- The `Agent: <agent>` line ends the message. It is the agreed standard across `claude-code`, `codex`, `agy` and any agent installed later. Leaving it out is tolerated, and is a lesser fault than including Anthropic's lines.
+- The commit author is Matt, always: `Matt Sheumack <189762347+MattSheumack@users.noreply.github.com>`, given per command with `git -c user.name=... -c user.email=...`, never through config.
 - Git adds history only. `git add`, `commit`, `push` and `tag` are permitted. Never `git reset --hard`, `rebase`, `push --force`, `filter-branch`, `restore`, or anything that rewrites or discards history or uncommitted work.
 
 ---

@@ -1,4 +1,4 @@
-<!-- Copy of repository_standard.md from MASKonsult/repository-index, commit 958f011, version 20261024a. Refreshed from the source; do not edit here. -->
+<!-- Copy of repository_standard.md from MASKonsult/repository-index, commit 75fb6d4, version 20261125a. Refreshed from the source; do not edit here. -->
 
 # Repository standard
 
@@ -10,7 +10,7 @@ user does not need.
 
 ## Directory convention
 
-Standard version: `20261024a` (`YYYYMMDD` followed by a lowercase letter: `a` for the
+Standard version: `20261125a` (`YYYYMMDD` followed by a lowercase letter: `a` for the
 first version on a date, then `b`, `c`; raised whenever this standard changes, so the latest
 version sorts last).
 
@@ -82,12 +82,16 @@ Rules for specific places:
   identity comes from the SSH key, not from the `gh` CLI's active account.
 - **Branches:** `main` is the default branch. Work on a task branch and push it;
   Matt merges to `main`.
+- **Other people's branches:** a fork's `upstream` remote and its branches belong to someone else and are never merged, cleaned up or counted as ours; only branches on `origin` are ours. Matt, 19 Nov 2026: "upstream shit we don't do. We don't do other people's... PyCanon's not mine, dude. It's all my own."
 - **Commits:** manual, at logical checkpoints. Commit messages describe *why*,
-  not *what*. Never add Co-Authored-By or "authored by" attribution. Agent-made
+  not *what*. Co-Authored-By, "authored by", "Generated with" and every other Claude or
+  Anthropic default line are absolutely forbidden. Agent-made
   commits end with an `Agent: <agent>` trailer using one of the agent names below
-  (for example `Agent: claude-code`), per OPS-271. Further commit labelling is
-  still to be decided.
-- **Commit author:** `Matt Sheumack <189762347+MattSheumack@users.noreply.github.com>`, GitHub's noreply address for the
+  (for example `Agent: claude-code`), per OPS-271. It is the agreed standard across
+  every agent, including any installed later; leaving it out is tolerated, and is a
+  lesser fault than including Anthropic's lines (Matt, 25 Nov 2026). Further commit
+  labelling is still to be decided.
+- **Commit author:** Matt, always: `Matt Sheumack <189762347+MattSheumack@users.noreply.github.com>`, GitHub's noreply address for the
   `MattSheumack` account (Matt, 22 Oct 2026), so no real email address goes into commits. Git takes the
   author from configuration and the machine's global author is a placeholder, so give it on each commit
   (`git -c user.name="Matt Sheumack" -c user.email=189762347+MattSheumack@users.noreply.github.com commit`). Earlier commits carry
